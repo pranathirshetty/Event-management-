@@ -30,7 +30,7 @@ const Home = () => {
       <div className="hero-beautiful">
         <div className="hero-overlay">
           <div className={`hero-content ${fadeIn ? 'fade-in' : ''}`}>
-            <div className="hero-badge">🚀 Welcome to Campus Events</div>
+         
             <h1>Discover Amazing Campus Events</h1>
             <p>Your one-stop platform for the most exciting college hackathons, fests, and workshops.</p>
             <div className="search-bar-container">
@@ -135,7 +135,7 @@ const Home = () => {
       {/* Call to action block */}
       <div className="cta-section">
         <div className="cta-content">
-          <div className="cta-badge">🎯 Ready to create amazing experiences?</div>
+         
           <h2>Want to host your own event?</h2>
           <p>Join the organizational committee and manage incredible experiences for thousands of students.</p>
           <Link to="/login" className="btn-outline cta-btn">

@@ -52,10 +52,16 @@ const Attendance = () => {
             </div>
             
             {scanResult && (
-                <div style={{ marginTop: "1rem", padding: "1rem", background: "#f0fff4", color: "#22543d", borderRadius: "8px", display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                    <FiCheckCircle size={20} />
-                    <div>
-                        <strong>Success: </strong> {scanResult.name} ({scanResult.studentId})
+                <div style={{ marginTop: "1rem", padding: "1rem", background: "#f0fff4", color: "#22543d", borderRadius: "8px" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem", borderBottom: "1px solid #c6f6d5", paddingBottom: "0.5rem" }}>
+                        <FiCheckCircle size={20} />
+                        <strong style={{ fontSize: "1.1rem" }}>Verified Check-in!</strong>
+                    </div>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "0.3rem", fontSize: "0.95rem" }}>
+                        <div><strong>Name:</strong> {scanResult.name}</div>
+                        <div><strong>Student ID:</strong> {scanResult.studentId}</div>
+                        <div><strong>Event:</strong> {scanResult.eventName}</div>
+                        {scanResult.timestamp && <div><strong>Reg. Date:</strong> {new Date(scanResult.timestamp).toLocaleString()}</div>}
                     </div>
                 </div>
             )}
@@ -87,7 +93,7 @@ const Attendance = () => {
                         <li key={idx} style={{ padding: "0.8rem", borderBottom: "1px solid #edf2f7" }}>
                             <div style={{ fontWeight: "600", color: "#2d3748" }}>{participant.name}</div>
                             <div style={{ fontSize: "0.85rem", color: "#718096" }}>
-                                {participant.studentId} • {participant.eventName}
+                                {participant.studentId} ï¿½ {participant.eventName}
                             </div>
                         </li>
                     ))}

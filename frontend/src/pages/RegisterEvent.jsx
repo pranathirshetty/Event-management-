@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { dummyEvents } from '../data/dummyEvents';
 import Button from '../components/Button';
 import { FiArrowLeft, FiCheckCircle, FiCalendar, FiMapPin, FiDownload } from 'react-icons/fi';
 import QRCode from 'react-qr-code';
+import emailjs from '@emailjs/browser';
 
 const RegisterEvent = () => {
   const { id } = useParams();
@@ -11,6 +12,8 @@ const RegisterEvent = () => {
   const [event, setEvent] = useState(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [qrValue, setQrValue] = useState('');
+  const qrRef = useRef();
+  
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -38,7 +41,41 @@ const RegisterEvent = () => {
         studentId: formData.studentId || 'N/A',
         timestamp: new Date().toISOString()
       };
-      setQrValue(JSON.stringify(ticketInfo));
+      
+      const qrDataStr = JSON.stringify(ticketInfo);
+      setQrValue(qrDataStr);
+
+      // Generate a public URL for the QR code image so it can be embedded in the email
+      const qrImageUrl = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(qrDataStr)}`;
+
+      // Send the email using EmailJS
+      emailjs
+        .send(
+         'service_33euagx',
+         'template_q7lu3ds', // Note: Make sure your template ID usually starts with "template_"
+          {
+            to_name: formData.fullName,
+            to_email: formData.email,
+            event_name: event.title,
+            event_date: new Date(event.date).toLocaleDateString(),
+            registration_time: new Date().toLocaleString(),
+            qr_data: qrDataStr,
+            qr_image_url: qrImageUrl, // You can use this as an image source in your email template: <img src="{{qr_image_url}}" alt="QR Code" />
+          },
+          {
+            publicKey: 'nZwZpCXzr63LS7H1C',
+          }
+        )
+        .then(
+          () => {
+            console.log('Email sent successfully!');
+          },
+          (error) => {
+            console.error('Failed to send email...', error);
+            alert('Could not send the confirmation email, but your registration was successful.');
+          }
+        );
+
       setIsSubmitted(true);
     }
   };
@@ -56,11 +93,12 @@ const RegisterEvent = () => {
           <FiCheckCircle style={{ fontSize: '4.5rem', color: '#48bb78', marginBottom: '1.5rem' }} />
           <h2 style={{ marginBottom: '1rem', color: '#2d3748' }}>Registration Successful!</h2>
           <p style={{ color: 'var(--secondary)', fontSize: '1.05rem', marginBottom: '1.5rem' }}>
-            Your spot for <strong>{event.title}</strong> has been confirmed. Below is your entry ticket.
+            Your spot for <strong>{event.title}</strong> has been confirmed. Below is your entry ticket. <br/><br/>
+            An email with your ticket details has been sent to <strong>{formData.email}</strong>.
           </p>
           
           <div style={{ background: '#fff', padding: '1.5rem', border: '1px solid #e2e8f0', borderRadius: '12px', display: 'inline-block', marginBottom: '1.5rem' }}>
-            <QRCode value={qrValue} size={180} />
+            <QRCode ref={qrRef} value={qrValue} size={180} />
             <p style={{ marginTop: '1rem', fontWeight: 'bold', fontSize: '0.9rem', color: '#4a5568' }}>Scan for Entry</p>
           </div>
 
