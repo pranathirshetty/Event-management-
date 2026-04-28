@@ -45,7 +45,10 @@ Visual insights including:
 Number of registrations
 Event popularity
 Participation trends
-📁 Project Structure
+
+
+Project Structure
+
 event-management/
 │── frontend/
 │   ├── components/
