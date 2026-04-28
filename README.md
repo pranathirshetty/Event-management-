@@ -47,22 +47,6 @@ Event popularity
 Participation trends
 
 
-Project Structure
-
-event-management/
-│── frontend/
-│   ├── components/
-│   ├── pages/
-│   └── assets/
-│
-│── backend/
-│   ├── routes/
-│   ├── controllers/
-│   ├── models/
-│   └── config/
-│
-│── README.md
-
 
 ⚙️ Installation & Setup
 1. Clone the repository
