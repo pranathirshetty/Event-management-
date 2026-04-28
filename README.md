@@ -65,7 +65,8 @@ event-management/
 1. Clone the repository
 git clone https://github.com/your-username/event-management.git
 cd event-management
-2. Install dependencies
+
+3. Install dependencies
 Frontend
 cd frontend
 npm install
