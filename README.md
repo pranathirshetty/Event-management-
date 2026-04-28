@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+ Web-Based College Event Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ 
+ Overview
 
-## Available Scripts
+In today’s digital era, colleges organize numerous events such as workshops, seminars, and cultural activities, yet many still rely on inefficient manual or semi-digital systems. This often results in poor coordination, lack of real-time updates, and difficulty in managing participant data.
 
-In the project directory, you can run:
+To address these challenges, this project presents a Web-Based College Event Management System built using the MERN Stack (MongoDB, Express.js, React, Node.js). The system provides a centralized, efficient, and user-friendly platform for managing college events.
 
-### `npm start`
+🎯 Objectives
+Digitize and streamline event management processes
+Improve communication between organizers and participants
+Ensure accurate attendance tracking
+Provide insights through analytics
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+🛠️ Tech Stack
+Frontend: React, Tailwind CSS
+Backend: Node.js, Express.js
+Database: MongoDB
+Other Tools: QR Code Integration, Email Services
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+✨ Key Features
+1. 🔐 Role-Based Access Control
+Supports multiple roles such as Admin and Student
+Ensures secure and restricted access based on user roles
+2. 📷 QR Code-Based Attendance
+Each registered participant receives a unique QR code
+Enables quick and accurate attendance tracking
+3. 📧 Email Notification System
+Automated emails for:
+Registration confirmation
+Event updates
+Reminders
 
-### `npm test`
+5. ⭐ Event Rating & Feedback
+Participants can rate and review events
+Helps organizers improve future events
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+7. 🔍 Search & Filter Functionality
+Search events by name, category, or date
+Filter events for better user experience
 
-### `npm run build`
+9. 📊 Dashboard Analytics
+Visual insights including:
+Number of registrations
+Event popularity
+Participation trends
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+⚙️ Installation & Setup
+1. Clone the repository
+git clone https://github.com/your-username/event-management.git
+cd event-management
 
-### `npm run eject`
+3. Install dependencies
+Frontend
+cd frontend
+npm install
+npm start
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Backend
+cd backend
+npm install
+npm run dev
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+EMAIL_USER=your_email
+EMAIL_PASS=your_password
+JWT_SECRET=your_secret_key
